@@ -1,0 +1,79 @@
+<% layout('layout/boilerplate') %>
+
+<div class="hero-container bg-image" id="home">
+  <div class="overlay"></div>
+  <div class="container">
+    <div
+      class="row min-vh-100 justify-content-center align-items-center text-center"
+    >
+      <div class="col-lg-8">
+        <div class="hero-content">
+          <h1 class="display-3 text-white mb-4 fw-bold">Welcome to YelpCamp</h1>
+          <p class="lead text-white mb-5">
+            Discover and share the best camping spots across the country. From
+            hidden gems to popular destinations, start your outdoor adventure
+            here.
+          </p>
+          <div class="d-flex justify-content-center gap-3">
+            <a href="/campgrounds" id="viewButton" class="btn btn-lg">
+              View Campgrounds
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .hero-container {
+    position: relative;
+    width: 100%;
+    background-size: cover;
+    color: white;
+    min-height: 100vh;
+    margin-top: -56px;
+  }
+  .bg-image {
+    background: darkslategray;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+  }
+
+  .hero-content h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-content p {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  #viewButton {
+    text-shadow: none;
+    transition: all 0.3s ease;
+  }
+
+  #viewButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+</style>

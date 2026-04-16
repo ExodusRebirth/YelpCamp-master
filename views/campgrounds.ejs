@@ -1,0 +1,91 @@
+<% layout('layout/boilerplate') %>
+
+
+    <main class="container">
+        <!-- Map Container -->
+        <section id="indexMapContainer">
+            <div class="row">
+                <div class="col-12">
+                    <div id="cluster-map"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Campgrounds List -->
+        <section>
+            <div class="col-12">
+                <% // support either 'campground' or 'campgrounds' variable and default to empty array 
+                    const campList = typeof campground !== 'undefined' ? campground : (typeof campgrounds !== 'undefined' ?
+                    campgrounds : []); %>
+
+                <div class="card-image-wrap" id="campgroundsPage">
+                    <div class="px-0">
+                        <div class="row">
+                        <% for(let campground of campList) { %>
+                            <div class="row shadow-lg border-bottom text-dark mt-2 mx-1" id="mainIndexCard">
+                                <div class="col-sm-6 p-0 m-0">
+                                    <div class="card bg-dark m-0 p-0">
+
+
+                                        <div class="camp-image-wrap" style="aspect-ratio:16/9; min-height:180px; width:100%; overflow:hidden; display:block;">
+                                            <%
+                                                // determine a safe image src: handle array of strings, array of objects with .url, single string, or fallback placeholder
+                                                let imgSrc = '/images/placeholder.jpg';
+                                                if (campground && campground.images) {
+                                                    if (Array.isArray(campground.images)) {
+                                                        const first = campground.images[0];
+                                                        imgSrc = (first && (first.url || first.path || first)) || imgSrc;
+                                                    } else if (typeof campground.images === 'object') {
+                                                        imgSrc = campground.images.url || campground.images.path || imgSrc;
+                                                    } else {
+                                                        imgSrc = campground.images;
+                                                    }
+                                                }
+                                            %>
+                                            <img crossorigin="anonymous" src="<%= imgSrc %>" 
+                                                class="camp-image"
+                                                alt="<%= campground && campground.sitename ? campground.sitename : 'Campground' %>"
+                                                style="width:100%; height:100%; object-fit:cover; display:block;">
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-sm-6 text-center d-flex flex-column justify-content-center align-items-center py-3 camp-text text-dark ">
+                                    <h4 class="display-5 mb-3">
+                                        <%= campground && campground.sitename ? campground.sitename : 'Untitled' %>
+                                    </h4>
+                                    <p>
+                                        <%= campground && (campground.city || campground.state) ? ((campground.city
+                                            || '' ) + (campground.city && campground.state ? ', ' : '' ) +
+                                            (campground.state || '' )) : '' %>
+                                    </p>
+                                    <div
+                                        class="d-flex flex-column flex-sm-row align-items-center justify-content-center gap-2">
+                                        <p class="mb-0">Price Per Night: <strong>$<%= campground && campground.price ?
+                                                    campground.price : 'N/A' %></strong></p>
+                                        <% if (campground && campground._id) { %>
+                                            <a id="viewButton" class="ms-sm-3"
+                                                href="/campgrounds/<%= campground._id %>">More
+                                                Info</a>
+                                            <% } %>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const maptoken = '<%- process.env.MAPBOX_TOKEN %>';
+        const mapData = { features: <%- JSON.stringify(campground) %> };
+    </script>
+    <script src="/javascripts/homePageMap.js"></script>

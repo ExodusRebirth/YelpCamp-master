@@ -1,0 +1,20 @@
+<% layout('layout/boilerplate') %>
+
+    <div class="row">
+        <div class="col-8 offset-2">
+            <div class="alert alert-danger text-center">
+                <h3 class="display-5 m-4">Sorry, something went wrong on our end!</h3>
+                <p>Try again, if the error prosists contact us for help.</p>
+                <p>
+                    <%= errorMessage %>
+                </p>
+                <p class="">
+                    <% if(process.env.NODE_ENV !== "production"){ %>
+                    <%= errorStack %>
+                    <% }else{ %>
+                    <a href="/campgrounds">Go back to campgrounds</a>
+                    <% } %>
+                </p>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,96 @@
+<% layout('layout/boilerplate') %>
+    <%- include('partials/flash') %>
+
+
+        <div class="row" id="editPage">
+            <form method="post" action="/campgrounds/<%= campground._id %>?_method=PUT" class="form-validation"
+                novalidate enctype="multipart/form-data">
+                <div class="col-10 offset-1">
+                    <div class="card row">
+
+
+
+
+
+                        <div class="card-body">
+                            <div class="card-title">
+                                <label for="sitename" class="mt-5">Sitename</label>
+                                <input class="form-control" type="text" name="sitename" id="sitename"
+                                    value="<%= campground.sitename %>" aria-describedby="requiredMessage" required>
+                                <div class="valid-feedback">looks good!</div>
+                                <div id="requiredMessage" class="invalid-feedback">This field is required...</div>
+                            </div>
+                            <p class="card-text">
+                            <div>
+                                <label class="mt-5" for="description">Description : </label>
+                                <textarea class="form-control" name="description" id="description" required
+                                    aria-describedby="requiredMessage"><%= campground.description %></textarea>
+                                <div class="valid-feedback">looks good!</div>
+                                <div id="requiredMessage" class="invalid-feedback">This field is required...</div>
+                                </p>
+                            </div>
+
+                        </div>
+                        <div> <label for="price" class="mt-5">Price :</label>
+                            <div ><input id="price" name="price" class="form-control" type="float"
+                                    value="<%= campground.price %>" aria-describedby="requiredMessage" required>
+                                <div class="valid-feedback">looks good!</div>
+                                <div id="requiredMessage" class="invalid-feedback">Make sure this is a number</div>
+
+
+                            </div>
+                            <div>
+                                <label for="city" class="mt-5">City:</label>
+                                <input class="form-control" id="city" name="city" type="text"
+                                    value="<%= campground.city %>" aria-describedby="requiredMessage" required>
+                                <div class="valid-feedback">looks good!</div>
+                                <div id="requiredMessage" class="invalid-feedback">This field is required...</div>
+                            </div>
+
+                            <div>
+                                <label for="state" class="mt-5">State:</label>
+                                <input class="form-control" id="state" name="state" type="text"
+                                    value="<%= campground.state %>" aria-describedby="requiredMessage" required>
+                                <div class="valid-feedback">looks good!</div>
+                                <div id="requiredMessage" class="invalid-feedback">This field is required...</div>
+                            </div>
+
+                            <div>
+                                <label class="mt-5" for="images">Add Images : </label>
+                                <input type="file" class="form-control" multiple name="images" id="images">
+                                <div class="valid-feedback">looks good!</div>
+                                <div id="requiredMessage" class="invalid-feedback">This field is required...</div>
+
+                            </div>
+                        </div>
+
+
+
+                        <button class="mt-5 p-2 " id="viewButton">Edit</button>
+
+                    </div>
+                    <div class="col-12 mt-2">
+                        <h3 class="d-flex justify-content-center">Images</h3>
+                        <div class="d-flex-grid flex-wrap justify-content-between">
+                            <% campground.images.forEach(function(img, i) { %>
+                                <div class="w-50 my-3 p-2">
+                                    <img src="<%=img.url%>" class="img-thumbnail" alt="">
+                                    <input type="checkbox" name="deletedImages[]" id="image-<%= i %>"
+                                        value="<%= img.filename %>" class=""><label class="mx-2" for="image-<%= i %>">
+                                        Delete
+                                    </label>
+
+                                </div>
+
+                                <% }) %>
+                        </div>
+                    </div>
+            </form>
+
+
+
+
+
+
+        </div>
+        </div>

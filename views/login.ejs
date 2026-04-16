@@ -1,0 +1,24 @@
+<% layout('layout/boilerplate') %>
+
+  <div class="row justify-content-center">
+    <div class="col-lg-10 p-5">
+      <form method="POST" action="/login" class="form-validation needs-validation mt-5" novalidate>
+
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" name="username" class="form-control" id="username" aria-describedby="usernameHelp"
+            required>
+          <div id="usernameHelp" class="form-text">Must be unique and without offensive text</div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" id="password" required>
+        </div>
+
+
+        <button id="viewButton" type="submit" class="btn btn-primary mt-2">Login</button>
+        <a id="viewButton" class="signupInput btn btn-primary mt-2" href="/">Back to Home</a>
+    </div>
+    </form>
+
+  </div>

@@ -1,0 +1,41 @@
+<nav class="navbar fixed-top navbar-expand-lg p-0"  id="navbar" data-bs-theme="light">
+  <div id="navContainer " class="container-fluid">
+    <p id="navBrand" class="mt-3  border-end pe-3 ">YelpCamp</p>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="navbar-nav">
+        <div class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" href="/campgrounds">Campgrounds</a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" href="/campgrounds/new">Share your Experience!</a>
+        </div>
+        <div class="navbar-nav me-auto">
+          <% if(currentUser === undefined) {  %>
+            <div class="nav-link"><a href="/login">Login</a></div>
+            <div class="nav-link"><a href="/signup">Signup</a></div>
+            <% } else{ %>
+              <div class="nav-link"><a id="signout" href="/signout">Signout</a></div>
+          
+          <img src="<%= currentUser.image %>" class="rounded-circle border-dark border-1 ms-auto" id="userImage" alt="...">
+              <% } %>
+        </div>
+
+
+
+
+
+
+
+
+      </div>
+
+    </div>
+  </div>
+</nav>

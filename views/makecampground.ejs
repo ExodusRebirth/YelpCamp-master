@@ -1,0 +1,66 @@
+<% layout('layout/boilerplate') %>
+
+    <div class="inputsContainer">
+        <form action="/campgrounds" method="post" novalidate class="form-validation" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-10 offset-1">
+                    <div class="card row">
+                        <div class="col d-inline "><img
+                                src="/createIamge.jpg"
+                                class="card-img-top" alt="...">
+
+                            <div class="mb-3">
+                                <label for="newimages" class="form-label">Multiple files input example</label>
+                                <input class="form-control" type="file" id="newimages" name="newimages" multiple>
+                            </div>
+
+
+                            <div class="card-body">
+                                <h5 class="card-title">Share your Experience with others!</h5>
+                                <div class="">
+                                    <p class="card-text">
+                                        <label class="mt-5 form-label" for="sitename">Sitename : </label>
+                                        <input class="form-control" type="text" name="campground[sitename]" id="sitename">
+
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    </p>
+                                </div>
+                                <div>
+                                    <p class="card-text">
+                                        <label class="mt-5 form-label" for="description">Description : </label>
+                                        <textarea class="form-control" name="campground[description]" id="description"
+                                            aria-describedby="descriptionValid" required></textarea>
+                                    <div class="valid-feedback">looks good!</div>
+                                    </p>
+                                </div>
+                                <div><label class="form-label" for="price"> Price :</label>
+                                    <li class=" list-group-item mb-0"><input id="price" name="campground[price]"
+                                            class="form-control" type="float" required></li>
+                                </div>
+                            </div>
+
+                            <ul class="list-group list-group-flush">
+
+                                <li class="list-group-item text-muted">
+                                    <label class="form-label" for="city">City:</label>
+                                    <input class="form-control" id="city" name="campground[city]" type="text" required>
+                                    <label class="form-label" for="state">State:</label>
+                                    <input class="form-control" id="state" name="campground[state]" type="text" required>
+                                </li>
+                            </ul>
+
+
+
+                            <button class="btn btn-dark mb-5 mt-2 mx-auto">Share</button>
+
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </form>

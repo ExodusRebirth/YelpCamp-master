@@ -1,0 +1,6 @@
+{
+  "delimiter": "%",
+  "strict": true,
+  "root": "views",
+  "modes": ["html", "js", "css"]
+}

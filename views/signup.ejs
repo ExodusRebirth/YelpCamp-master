@@ -1,0 +1,31 @@
+<% layout('layout/boilerplate') %>
+  <div class="row justify-content-center">
+    <div class="col-lg-10 p-5">
+      <form method="POST" action="/signup" class="form-validation needs-validation mt-5" novalidate>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" required>
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          <div class="invalid-feedback">Valid email required!</div>
+        </div>
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" name="username" class="form-control" id="username" aria-describedby="usernameHelp" required>
+          <div id="usernameHelp" class="form-text">Must be unique and without offensive text</div>
+          <div class="invalid-feedback">Username required!</div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" id="password" onkeyup="checkPasswordLength(this.value)" required minlength="7" pattern="(?=.*\d)(?=.*[\W_]).{7,}">
+          <div id="passwordHelp" class="form-text">Must be at least 7 characters long and include at least one number and one special character.</div>
+          <div class="invalid-feedback">Valid password required!</div>
+          
+        </div>
+
+
+        <button id="viewButton" type="submit" class="btn btn-primary mt-2">Signup</button>
+        <a id="viewButton" class="signupInput btn btn-primary mt-2" href="/">Back to Home</a>
+    </div>
+    </form>
+
+  </div>
