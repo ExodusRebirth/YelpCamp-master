@@ -5,6 +5,6 @@ My version of the cole steele Application in his bootcamp YelpCamp
 
 ![Mobile first design for modern practice web application](public/YelpCampMobileLayout.png)
 
-![mapbox map that allows quickly find campground in a state or area](public/seearchCampgrounds.png)
+![mapbox map that allows quickly find campground in a state or area](public/searchCampgrounds.png)
 
 ![upload an image and price to share the experience with others](public/campgroundCreate.png)
